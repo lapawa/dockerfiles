@@ -1,0 +1,21 @@
+--- vmware-vsphere-cli-distrib/bin/vmware-uninstall-vSphere-CLI.pl	2016-10-28 14:37:30.179472674 +0200
++++ vmware-vsphere-cli-distrib/bin/vmware-uninstall-vSphere-CLI.pl.patched	2016-10-28 14:55:17.547990771 +0200
+@@ -1418,7 +1418,8 @@
+       return $answer;
+     }
+     if ($gOption{'default'} == 1) {
+-      error('Invalid default answer!' . "\n");
++	return 'yes';
++#      error('Invalid default answer!' . "\n");
+     }
+   }
+ }
+@@ -2776,7 +2777,7 @@
+ 
+   my $previous = $gOption{'default'};
+   $gOption{'default'} = 0;
+-  show_EULA();
++#  show_EULA();
+   $gOption{'default'} = $previous;
+ 
+   if ((check_disk_space('.', '/usr/lib')) < 0) {
